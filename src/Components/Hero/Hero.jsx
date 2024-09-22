@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-indigo-400 rounded-full opacity-30 transform translate-x-1/4 translate-y-1/4"></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 pt-60 text-sm relative z-10 text-white">
+      <div className="container mx-auto px-4 md:px-8 relative z-10 text-white">
         <div className="flex flex-col md:flex-row items-center">
           <motion.div 
             className="md:w-1/2 mb-6 md:mb-0"
@@ -33,7 +33,7 @@ const Hero = () => {
               a Professional Welder
             </h1>
             <p className="mb-4 text-sm text-indigo-200">
-              With over 8 years of experience, I specialize in precision welding for industrial and artistic projects. Based in Cameroon, I bring creativity and technical expertise to every job.
+              With over 5 years of experience, I specialize in precision welding for industrial and artistic projects. Based in Cameroon, I bring creativity and technical expertise to every job.
             </p>
             <div className="flex space-x-3 mb-4">
               <motion.button 
@@ -69,7 +69,7 @@ const Hero = () => {
           >
             <div className="relative rounded-full overflow-hidden">
               <div className="absolute inset-x-0 top-0 h-1/2 bg-gray z-0"></div>
-              <Image src="/images/welder.png" alt="Lambi Princewill" width={300} height={300} className="relative z-10 md:px-8 h-300" />
+              <Image src="/images/welder.png" alt="Lambi Princewill" width={300} height={300} className="relative z-10" />
             </div>
             <motion.div 
               className="absolute top-2 right-2 bg-yellow-400 text-indigo-900 px-3 py-1 rounded-full text-xs font-semibold"
@@ -77,7 +77,7 @@ const Hero = () => {
               animate={{ scale: 1 }}
               transition={{ delay: 0.5, type: 'spring', stiffness: 150 }}
             >
-              8+ Years Experience
+              5+ Years Experience
             </motion.div>
           </motion.div>
         </div>
