@@ -4,6 +4,7 @@ import Image from "next/image";
 import ServicesSection from './../Components/Services/Services';
 import Head from 'next/head'
 import { useState, useEffect } from 'react'
+import Link from "next/link";
 
 export default function Home() {
   const [darkMode, setDarkMode] = useState(false)
@@ -18,7 +19,7 @@ export default function Home() {
         <title>Expert Welding Services - Douala, Cameroon</title>
         <link rel="icon" href="/favicon.ico" />
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" async/>
       </Head>
 
       <main>
@@ -68,41 +69,41 @@ export default function Home() {
       {[
         {
           name: 'Industrial Steel Framework',
-          img: 'https://image.pollinations.ai/prompt/Industrial%20steel%20framework%20welding%20project%20sparks%20flying%20professional%20welder%20at%20work?width=600&height=400&nologo=true',
+          image: 'https://image.pollinations.ai/prompt/Industrial%20steel%20framework%20welding%20project%20sparks%20flying%20professional%20welder%20at%20work?width=600&height=400&nologo=true',
           description: 'Engineered and welded a robust steel framework for a major industrial complex, ensuring structural integrity and safety.'
         },
         {
           name: 'Artistic Metal Sculpture',
-          img: 'https://image.pollinations.ai/prompt/Intricate%20metal%20sculpture%20welding%20artistic%20design%20craftsmanship?width=600&height=400&nologo=true',
+          image: 'https://image.pollinations.ai/prompt/Intricate%20metal%20sculpture%20welding%20artistic%20design%20craftsmanship?width=600&height=400&nologo=true',
           description: 'Created a stunning metal sculpture for a public park, showcasing both artistic vision and precise welding techniques.'
         },
         {
           name: 'High-Pressure Pipeline Repair',
-          img: 'https://image.pollinations.ai/prompt/Welding%20high-pressure%20pipeline%20repair%20precision%20work%20industrial%20setting?width=600&height=400&nologo=true',
+          image: 'https://image.pollinations.ai/prompt/Welding%20high-pressure%20pipeline%20repair%20precision%20work%20industrial%20setting?width=600&height=400&nologo=true',
           description: 'Successfully completed emergency repairs on a high-pressure pipeline, demonstrating expertise in critical welding situations.'
         },
         {
           name: 'Custom Aluminum Boat Hull',
-          img: 'https://image.pollinations.ai/prompt/Welding%20custom%20aluminum%20boat%20hull%20marine%20grade%20craftsmanship?width=600&height=400&nologo=true',
+          image: 'https://image.pollinations.ai/prompt/Welding%20custom%20aluminum%20boat%20hull%20marine%20grade%20craftsmanship?width=600&height=400&nologo=true',
           description: 'Fabricated a custom aluminum boat hull, showcasing skills in lightweight metal welding for marine applications.'
         },
         {
           name: 'Ongoing: Skyscraper Steel Framing',
-          img: 'https://image.pollinations.ai/prompt/Welding%20skyscraper%20steel%20framing%20construction%20site%20high-rise%20building?width=600&height=400&nologo=true',
+          image: 'https://image.pollinations.ai/prompt/Welding%20skyscraper%20steel%20framing%20construction%20site%20high-rise%20building?width=600&height=400&nologo=true',
           description: 'Currently working on the steel framing for a new skyscraper, applying advanced welding techniques at great heights.'
         },
         {
           name: 'Future Project: Aerospace Components',
-          img: 'https://image.pollinations.ai/prompt/Precision%20welding%20aerospace%20components%20high-tech%20laboratory%20setting?width=600&height=400&nologo=true',
+          image: 'https://image.pollinations.ai/prompt/Precision%20welding%20aerospace%20components%20high-tech%20laboratory%20setting?width=600&height=400&nologo=true',
           description: 'Aspiring to work on aerospace components, pushing the boundaries of precision welding for critical applications.'
         }
       ].map((project, index) => (
         <div key={index} className="project-card rounded-lg overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-105 bg-white">
-          <img src={project.img} alt={project.name} className="w-full h-48 object-cover" />
+          <img src={project.image} alt={project.name} className="w-full h-48 object-cover" />
           <div className="p-6">
             <h3 className="text-xl font-semibold mb-2 text-indigo-600">{project.name}</h3>
             <p className="text-base mb-4 text-gray-700">{project.description}</p>
-            <a href="#" className="inline-block px-4 py-2 rounded-full bg-indigo-500 text-white font-semibold transition-colors duration-300 hover:bg-indigo-600">View Details</a>
+            {/* <Link href="#" className="inline-block px-4 py-2 rounded-full bg-indigo-500 text-white font-semibold transition-colors duration-300 hover:bg-indigo-600">View Details</Link> */}
           </div>
         </div>
       ))}
@@ -152,7 +153,7 @@ export default function Home() {
 
       <script dangerouslySetInnerHTML={{__html: `
         // Initialize GSAP animations
-        gsap.from('#about img', { duration: 1, opacity: 0, y: 50, ease: 'power3.out' });
+        gsap.from('#about image', { duration: 1, opacity: 0, y: 50, ease: 'power3.out' });
         gsap.from('.service-card', { duration: 0.8, opacity: 0, y: 30, stagger: 0.1, ease: 'power3.out' });
         gsap.from('.project-card', { duration: 0.8, opacity: 0, y: 30, stagger: 0.1, ease: 'power3.out' });
       `}} />

@@ -126,7 +126,7 @@ const Newsletter = ({ email, setEmail, handleSubmit, isSubscribed }) => (
 const ContactInfo = () => (
   <div className="mt-12 pt-8 border-t border-gray-800 flex flex-wrap justify-center space-x-8">
     <ContactItem Icon={FaMapMarkerAlt} text="123 Welding Street, Douala, Cameroon" />
-    <ContactItem Icon={FaPhone} text="+237 123 456 789" />
+    <ContactItem Icon={FaPhone} text="+237 681 045 638" />
     <ContactItem Icon={FaEnvelope} text="info@weldmasterdouala.com" />
   </div>
 );
