@@ -16,7 +16,7 @@ const Navbar = () => {
       <div className={styles.container}>
         <div className={styles.navContent}>
           <Link href="/" className={styles.logo}>
-            AMBE
+            WildMaster
           </Link>
           <div className={styles.navLinks}>
             <Link href="/" className={styles.navLink}>Home</Link>
@@ -24,9 +24,9 @@ const Navbar = () => {
             <Link href="/services" className={styles.navLink}>Services</Link>
             <Link href="/portfolio" className={styles.navLink}>Portfolio</Link>
             <Link href="/contact" className={styles.navLink}>Contact</Link>
-            <a href="/path-to-your-cv.pdf" download className={styles.downloadButton}>
+            <Link href="/path-to-your-cv.pdf" download className={styles.downloadButton}>
               Download CV
-            </a>
+            </Link>
           </div>
           <button
             onClick={toggleMenu}
@@ -52,9 +52,9 @@ const Navbar = () => {
         <Link href="/services" className={styles.mobileNavLink}>Services</Link>
         <Link href="/portfolio" className={styles.mobileNavLink}>Portfolio</Link>
         <Link href="/contact" className={styles.mobileNavLink}>Contact</Link>
-        <a href="/path-to-your-cv.pdf" download className={`${styles.mobileNavLink} ${styles.downloadButton}`}>
+        <Link href="/path-to-your-cv.pdf" download className={`${styles.mobileNavLink} ${styles.downloadButton}`}>
           Download CV
-        </a>
+        </Link>
       </div>
     </nav>
   );
