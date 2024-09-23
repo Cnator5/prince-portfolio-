@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const services = [
+  // ... (services array remains unchanged)
   {
     id: 1,
     title: 'Structural Welding',
@@ -49,6 +50,7 @@ const services = [
   }
 ];
 
+
 const ServiceCard = ({ service }) => {
   return (
     <motion.div
@@ -63,7 +65,7 @@ const ServiceCard = ({ service }) => {
           <path d={service.icon} />
         </svg>
         <h3 className="text-xl font-semibold text-gray-800 mb-2">{service.title}</h3>
-        <p className="text-gray-600 text-center mb-4">{service.description}</p>
+        <p className="text-gray-800 text-center mb-4 text-sm md:text-base">{service.description}</p>
         <motion.div 
           className="relative w-full h-48 rounded-lg overflow-hidden"
           whileHover={{ scale: 1.05 }}

@@ -22,9 +22,7 @@ export default function Home() {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js" async/>
       </Head>
 
-      <main>
-        {/* Navbar and Hero sections (already built) */}
-        
+      <main>        
       <Hero/>
       <ServicesSection/>
 
