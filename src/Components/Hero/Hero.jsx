@@ -3,6 +3,7 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import styles from './Hero.module.css'
 
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
@@ -26,38 +27,38 @@ const Hero = () => {
   }
 
   return (
-    <section className="relative overflow-hidden flex items-center pt-20 pb-10" style={{ height: windowHeight, minHeight: '600px' }}>
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 to-indigo-800">
-        <div className="absolute top-0 left-0 w-1/4 h-1/4 bg-yellow-400 rounded-full opacity-30 transform -translate-x-1/2 -translate-y-1/2"></div>
-        <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-indigo-400 rounded-full opacity-30 transform translate-x-1/4 translate-y-1/4"></div>
+    <section className={styles.heroSection} style={{ height: windowHeight, minHeight: '600px' }}>
+      <div className={styles.backgroundGradient}>
+        <div className={styles.yellowCircle}></div>
+        <div className={styles.indigoCircle}></div>
       </div>
 
-      <div className="container mx-auto px-4 md:px-8 relative z-10 text-white">
-        <div className="flex flex-col md:flex-row items-center">
+      <div className={styles.container}>
+        <div className={styles.content}>
           <motion.div 
-            className="md:w-1/2 mb-6 md:mb-0"
+            className={styles.textContent}
             initial="hidden"
             animate="visible"
             variants={fadeIn}
           >
-            <h1 className="text-3xl font-bold mb-3 leading-tight">
+            <h1 className={styles.title}>
               Hello, I am<br />
-              <span className="text-yellow-400">Lambi Princewill</span><br />
+              <span className={styles.highlight}>Lambi Princewill</span><br />
               a Professional Welder
             </h1>
-            <p className="mb-4 text-sm text-indigo-200">
+            <p className={styles.description}>
               With over 5 years of experience, I specialize in precision welding for industrial and artistic projects. Based in Cameroon, I bring creativity and technical expertise to every job.
             </p>
-            <div className="flex space-x-3 mb-4">
+            <div className={styles.buttonGroup}>
               <motion.button 
-                className="bg-yellow-400 text-indigo-900 px-4 py-2 rounded-full text-sm font-semibold hover:bg-yellow-300 transition duration-300"
+                className={styles.primaryButton}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get Started
               </motion.button>
               <motion.button 
-                className="border border-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-white hover:text-indigo-600 transition duration-300 flex items-center"
+                className={styles.secondaryButton}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsVideoPlaying(true)}
@@ -65,27 +66,27 @@ const Hero = () => {
                 Watch Intro
               </motion.button>
             </div>
-            <div className="flex items-center">
-              <span className="text-xs mr-2">500+ Satisfied Clients</span>
-              <div className="flex -space-x-2">
+            <div className={styles.clientSection}>
+              <span className={styles.clientText}>500+ Satisfied Clients</span>
+              <div className={styles.clientImages}>
                 {[1, 2, 3, 4, 5].map((i) => (
-                  <Image key={i} src={`https://picsum.photos/20/20?random=${i}`} alt={`Client ${i}`} width={20} height={20} className="rounded-full border-2 border-white" />
+                  <Image key={i} src={`https://picsum.photos/20/20?random=${i}`} alt={`Client ${i}`} width={20} height={20} className={styles.clientImage} />
                 ))}
               </div>
             </div>
           </motion.div>
           <motion.div 
-            className="md:w-1/2 relative flex flex-col items-center"
+            className={styles.imageContent}
             initial={{ x: 100, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="relative rounded-full overflow-hidden">
-              <div className="absolute inset-x-0 top-0 h-1/2 bg-gray z-0"></div>
-              <Image src="/images/welder.png" alt="Lambi Princewill" width={300} height={300} className="relative z-10" />
+            <div className={styles.imageWrapper}>
+              <div className={styles.imageBackground}></div>
+              <Image src="/images/welder.png" alt="Lambi Princewill" width={300} height={300} className={styles.welderImage} />
             </div>
             <motion.div 
-              className="absolute top-2 right-2 bg-yellow-400 text-indigo-900 px-3 py-1 rounded-full text-xs font-semibold"
+              className={styles.experienceBadge}
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.5, type: 'spring', stiffness: 150 }}
@@ -98,11 +99,11 @@ const Hero = () => {
 
       {isVideoPlaying && (
         <motion.div 
-          className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
+          className={styles.videoOverlay}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
         >
-          <div className="bg-white p-3 rounded-lg">
+          <div className={styles.videoWrapper}>
             <iframe 
               width="280" 
               height="158" 
@@ -113,7 +114,7 @@ const Hero = () => {
               allowFullScreen
             ></iframe>
             <button 
-              className="mt-3 bg-indigo-600 text-white px-3 py-1 rounded text-sm"
+              className={styles.closeButton}
               onClick={() => setIsVideoPlaying(false)}
             >
               Close

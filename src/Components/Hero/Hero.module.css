@@ -1,0 +1,240 @@
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  padding-top: 6rem; /* Increased padding-top for better visibility on small screens */
+  padding-bottom: 2.5rem;
+}
+
+.backgroundGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, #4f46e5, #3730a3);
+}
+
+.yellowCircle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25%;
+  height: 25%;
+  background-color: #fbbf24;
+  border-radius: 50%;
+  opacity: 0.3;
+  transform: translate(-50%, -50%);
+}
+
+.indigoCircle {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 33.333%;
+  height: 33.333%;
+  background-color: #818cf8;
+  border-radius: 50%;
+  opacity: 0.3;
+  transform: translate(25%, 25%);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 10;
+  color: white;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textContent {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+}
+
+.highlight {
+  color: #fbbf24;
+}
+
+.description {
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  color: #c7d2fe;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.primaryButton {
+  background-color: #fbbf24;
+  color: #312e81;
+}
+
+.primaryButton:hover {
+  background-color: #fcd34d;
+}
+
+.secondaryButton {
+  border: 1px solid white;
+  display: flex;
+  align-items: center;
+}
+
+.secondaryButton:hover {
+  background-color: white;
+  color: #4f46e5;
+}
+
+.clientSection {
+  display: flex;
+  align-items: center;
+}
+
+.clientText {
+  font-size: 0.75rem;
+  margin-right: 0.5rem;
+}
+
+.clientImages {
+  display: flex;
+}
+
+.clientImage {
+  border-radius: 50%;
+  border: 2px solid white;
+  margin-left: -0.5rem;
+}
+
+.imageContent {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imageWrapper {
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* Removed .imageBackground */
+
+.welderImage {
+  position: relative;
+  z-index: 10;
+}
+
+.experienceBadge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: #fbbf24;
+  color: #312e81;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.videoOverlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+}
+
+.videoWrapper {
+  background-color: white;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
+}
+
+.closeButton {
+  margin-top: 0.75rem;
+  background-color: #4f46e5;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .content {
+    flex-direction: row;
+  }
+
+  .textContent,
+  .imageContent {
+    width: 50%;
+  }
+
+  .textContent {
+    margin-bottom: 0;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .heroSection {
+    padding-top: 5rem; /* Increased padding-top for better visibility on small screens */
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  .buttonGroup {
+    justify-content: center;
+  }
+
+  .clientSection {
+    justify-content: center;
+  }
+
+  .imageContent {
+    margin-top: 2rem;
+  }
+
+  .experienceBadge {
+    top: 1rem;
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
