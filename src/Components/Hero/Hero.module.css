@@ -4,7 +4,6 @@
   display: flex;
   align-items: center;
   padding-top: 6rem; /* Increased padding-top for better visibility on small screens */
-  padding-bottom: 2.5rem;
 }
 
 .backgroundGradient {
@@ -41,7 +40,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 3rem;
   position: relative;
   z-index: 10;
   color: white;
@@ -55,7 +54,6 @@
 
 .textContent {
   width: 100%;
-  margin-bottom: 1.5rem;
 }
 
 .title {

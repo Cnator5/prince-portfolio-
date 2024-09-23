@@ -83,7 +83,7 @@ const Hero = () => {
           >
             <div className={styles.imageWrapper}>
               <div className={styles.imageBackground}></div>
-              <Image src="/images/welder.png" alt="Lambi Princewill" width={300} height={300} className={styles.welderImage} />
+              <Image src="/images/weldmaster.png" alt="Lambi Princewill" width={400} height={300} className={styles.welderImage} />
             </div>
             <motion.div 
               className={styles.experienceBadge}
