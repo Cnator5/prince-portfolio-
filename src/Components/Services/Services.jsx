@@ -86,10 +86,10 @@ const ServiceCard = ({ service }) => {
 
 export default function ServicesSection() {
   return (
-    <section className="relative min-h-screen py-20 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+    <section className="relative min-h-screen py-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2 
-          className="text-4xl font-bold text-center text-gray-900 mb-12"
+          className="text-4xl font-bold text-center text-black mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
