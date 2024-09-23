@@ -60,7 +60,7 @@ const ServiceCard = ({ service }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center bg-white">
         {/* <svg className="w-12 h-12 text-indigo-600 mb-4" viewBox="0 0 24 24" fill="currentColor">
           <path d={service.icon} />
         </svg> */}
