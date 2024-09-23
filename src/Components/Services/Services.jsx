@@ -89,7 +89,7 @@ export default function ServicesSection() {
     <section className="relative min-h-screen py-20 bg-white overflow-hidden text-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2 
-          className="text-4xl font-bold text-center text-black mb-12"
+          className="text-4xl font-bold text-center text-gray-800 mb-12"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
