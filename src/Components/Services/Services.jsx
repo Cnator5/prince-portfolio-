@@ -86,7 +86,7 @@ const ServiceCard = ({ service }) => {
 
 export default function ServicesSection() {
   return (
-    <section className="relative min-h-screen py-20 bg-white overflow-hidden">
+    <section className="relative min-h-screen py-20 bg-white overflow-hidden text-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2 
           className="text-4xl font-bold text-center text-black mb-12"
