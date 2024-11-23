@@ -25,53 +25,37 @@
   
   .logo {
     font-size: 2rem;
-    font-weight: 800;
+    font-weight: 700;
     text-decoration: none;
-    background: linear-gradient(45deg, #ff4d4d, #f9d423);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: #ff4d4d;
-    @supports (-webkit-background-clip: text) or (background-clip: text) {
-        color: transparent;
-    }
-    text-transform: uppercase;
+    color: #fbbf24;
+    /* text-transform: uppercase; */
     letter-spacing: 2px;
-    position: relative;
     padding: 5px 10px;
+    position: relative;
     transition: all 0.3s ease;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.logo:hover {
-    transform: translateY(-2px);
-}
-
-/* Dark mode adjustments */
-@media (prefers-color-scheme: dark) {
-    .logo {
-        background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-        color: #ff6b6b;
-        @supports (-webkit-background-clip: text) or (background-clip: text) {
-            color: transparent;
-        }
-        text-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
-    }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .logo {
-        font-size: 1.75rem;
-        letter-spacing: 1px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        font-size: 1.5rem;
-    }
-}
-
+  }
+  
+  .logo::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ff4757;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    color: yellow;
+  }
+  
+  .logo:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
   .navLinks {
     display: none;
   }
@@ -219,7 +203,7 @@
     font-weight: 600;
     letter-spacing: 0.5px;
     color: #fff;
-    background: linear-gradient(135deg, #2563eb, #1e40af);
+    background: linear-gradient(135deg, #2563eb, #fbbf24);
     border: none;
     border-radius: 12px;
     cursor: pointer;
