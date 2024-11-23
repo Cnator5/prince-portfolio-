@@ -8,6 +8,10 @@ import styles from './Hero.module.css'
 const Hero = () => {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false)
   const [windowHeight, setWindowHeight] = useState('100vh')
+  const [displayText, setDisplayText] = useState('')
+  const [isTypingComplete, setIsTypingComplete] = useState(false)
+
+  const fullText = "With over 5 years of experience, I specialize in precision welding for industrial and artistic projects. Based in Cameroon, I bring creativity and technical expertise to every job."
 
   useEffect(() => {
     const updateHeight = () => {
@@ -21,9 +25,37 @@ const Hero = () => {
     return () => window.removeEventListener('resize', updateHeight)
   }, [])
 
+  useEffect(() => {
+    let currentIndex = 0
+    const typingSpeed = 60 // Adjust typing speed (milliseconds per character)
+    
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= fullText.length) {
+        setDisplayText(fullText.slice(0, currentIndex))
+        currentIndex++
+      } else {
+        clearInterval(typingInterval)
+        setIsTypingComplete(true)
+      }
+    }, typingSpeed)
+
+    return () => clearInterval(typingInterval)
+  }, [])
+
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.8 } }
+  }
+
+  const cursorVariants = {
+    blink: {
+      opacity: [0, 1],
+      transition: {
+        duration: 0.8,
+        repeat: Infinity,
+        repeatType: "reverse"
+      }
+    }
   }
 
   return (
@@ -47,7 +79,14 @@ const Hero = () => {
               a Professional Welder
             </h1>
             <p className={styles.description}>
-              With over 5 years of experience, I specialize in precision welding for industrial and artistic projects. Based in Cameroon, I bring creativity and technical expertise to every job.
+              {displayText}
+              {!isTypingComplete && (
+                <motion.span
+                  variants={cursorVariants}
+                  animate="blink"
+                  className={styles.typingCursor}
+                >|</motion.span>
+              )}
             </p>
             <div className={styles.buttonGroup}>
               <motion.button 
@@ -107,7 +146,7 @@ const Hero = () => {
             <iframe 
               width="280" 
               height="158" 
-              src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+              // src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
               title="Intro Video" 
               frameBorder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 

@@ -16,13 +16,13 @@ const Navbar = () => {
       <div className={styles.container}>
         <div className={styles.navContent}>
           <Link href="/" className={styles.logo}>
-            WildMaster
+            WeldMaster
           </Link>
           <div className={styles.navLinks}>
-            <Link href="/" className={styles.navLink}>Home</Link>
+            {/* <Link href="/" className={styles.navLink}>Home</Link>
             <Link href="/about" className={styles.navLink}>About</Link>
             <Link href="/services" className={styles.navLink}>Services</Link>
-            <Link href="/portfolio" className={styles.navLink}>Portfolio</Link>
+            <Link href="/portfolio" className={styles.navLink}>Portfolio</Link> */}
             <Link href="/contact" className={styles.navLink}>Contact</Link>
             <Link href="/path-to-your-cv.pdf" download className={styles.downloadButton}>
               Download CV
@@ -47,10 +47,10 @@ const Navbar = () => {
       </div>
 
       <div className={`${styles.mobileMenu} ${isOpen ? styles.open : ''}`}>
-        <Link href="/" className={styles.mobileNavLink}>Home</Link>
+        {/* <Link href="/" className={styles.mobileNavLink}>Home</Link>
         <Link href="/about" className={styles.mobileNavLink}>About</Link>
         <Link href="/services" className={styles.mobileNavLink}>Services</Link>
-        <Link href="/portfolio" className={styles.mobileNavLink}>Portfolio</Link>
+        <Link href="/portfolio" className={styles.mobileNavLink}>Portfolio</Link> */}
         <Link href="/contact" className={styles.mobileNavLink}>Contact</Link>
         <Link href="/path-to-your-cv.pdf" download className={`${styles.mobileNavLink} ${styles.downloadButton}`}>
           Download CV

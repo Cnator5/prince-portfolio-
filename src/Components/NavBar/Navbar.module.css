@@ -24,10 +24,106 @@
   }
   
   .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
+    font-size: 2rem;
+    font-weight: 800;
     text-decoration: none;
+    background: linear-gradient(45deg, #ff4d4d, #f9d423);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .logo::before {
+    content: "WeldMaster";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ff4d4d, #f9d423);
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+  }
+  
+  .logo::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ff4d4d, #f9d423, transparent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: translateY(-2px);
+  }
+  
+  .logo:hover::before {
+    opacity: 0.4;
+  }
+  
+  .logo:hover::after {
+    transform: scaleX(1);
+  }
+  
+  /* Add this if you want to create a metallic/welding effect */
+  @keyframes sparkle {
+    0% { background-position: 100% 0; }
+    100% { background-position: -100% 0; }
+  }
+  
+  .logo span {
+    position: relative;
+  }
+  
+  .logo span::before {
+    content: '';
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.2), 
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: sparkle 2s linear infinite;
+    pointer-events: none;
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .logo {
+      background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+      text-shadow: 0 0 10px rgba(255, 107, 107, 0.3);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .logo {
+      font-size: 1.75rem;
+      letter-spacing: 1px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo {
+      font-size: 1.5rem;
+    }
   }
   
   .navLinks {
@@ -35,32 +131,233 @@
   }
   
   .navLink {
-    color: white;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.375rem;
+    position: relative;
+    padding: 0.6rem 1.2rem;
     font-size: 0.875rem;
     font-weight: 500;
-    transition: background-color 0.3s;
-  }
-  
-  .navLink:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: linear-gradient(
+        to right,
+        transparent,
+        transparent
+    );
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.navLink::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.8),
+        transparent
+    );
+    transform: translateX(-50%);
+    transition: width 0.4s ease-in-out;
+    border-radius: 4px;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navLink:hover {
+    color: #ffffff;
+    transform: translateY(-1px);
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.05)
+    );
+}
+
+.navLink:hover::before {
+    width: 80%;
+}
+
+.navLink:hover::after {
+    opacity: 1;
+}
+
+.navLink:active {
+    transform: translateY(1px);
+}
+
+/* Active state styles */
+.navLink.active {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    box-shadow: 
+        inset 0 0 8px rgba(255, 255, 255, 0.1),
+        0 0 4px rgba(255, 255, 255, 0.1);
+}
+
+.navLink.active::before {
+    width: 90%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.9),
+        transparent
+    );
+}
+
+/* Glowing effect for important links */
+.navLink.important {
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+    }
+}
+
+/* Optional: Add this for dark mode support */
+@media (prefers-color-scheme: dark) {
+    .navLink {
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .navLink:hover {
+        background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0.08),
+            rgba(255, 255, 255, 0.03)
+        );
+    }
+
+    .navLink.active {
+        background: rgba(255, 255, 255, 0.12);
+    }
+}
+
+/* Optional: Add responsive styles */
+@media (max-width: 768px) {
+    .navLink {
+        padding: 0.5rem 1rem;
+        font-size: 0.8125rem;
+    }
+
+    .navLink::before {
+        height: 1.5px;
+    }
+}
   
   .downloadButton {
-    color: black;
-    padding: 0.5rem 0.75rem;
-    border-radius: 0.375rem;
+    position: relative;
+    padding: 0.8rem 1.5rem;
     font-size: 0.875rem;
-    font-weight: 500;
-    background-color: yellow;
-    transition: background-color 0.3s;
-  }
-  
-  .downloadButton:hover {
-    background-color: #2563eb;
-  }
-  
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #fff;
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        6px 6px 12px rgba(37, 99, 235, 0.2),
+        -6px -6px 12px rgba(255, 255, 255, 0.1),
+        inset 1px 1px 1px rgba(255, 255, 255, 0.2);
+    transform: translateY(0);
+}
+
+.downloadButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    transition: all 0.6s;
+}
+
+.downloadButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        8px 8px 16px rgba(37, 99, 235, 0.3),
+        -8px -8px 16px rgba(255, 255, 255, 0.1),
+        inset 1px 1px 1px rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, #1e40af, #2563eb);
+}
+
+.downloadButton:hover::before {
+    left: 100%;
+}
+
+.downloadButton:active {
+    transform: translateY(1px);
+    box-shadow: 
+        4px 4px 8px rgba(37, 99, 235, 0.2),
+        -4px -4px 8px rgba(255, 255, 255, 0.1),
+        inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Add this if you want to include a subtle loading animation */
+.downloadButton.loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.7;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Optional: Add this for dark mode support */
+@media (prefers-color-scheme: dark) {
+    .downloadButton {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        box-shadow: 
+            6px 6px 12px rgba(0, 0, 0, 0.3),
+            -6px -6px 12px rgba(255, 255, 255, 0.05),
+            inset 1px 1px 1px rgba(255, 255, 255, 0.1);
+    }
+
+    .downloadButton:hover {
+        background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+        box-shadow: 
+            8px 8px 16px rgba(0, 0, 0, 0.4),
+            -8px -8px 16px rgba(255, 255, 255, 0.05),
+            inset 1px 1px 1px rgba(255, 255, 255, 0.1);
+    }
+}
   .menuButton {
     display: inline-flex;
     align-items: center;
