@@ -30,9 +30,7 @@
     background: linear-gradient(45deg, #ff4d4d, #f9d423);
     -webkit-background-clip: text;
     background-clip: text;
-    /* Fallback color in case gradient doesn't work */
     color: #ff4d4d;
-    /* Make it transparent only if background-clip is supported */
     @supports (-webkit-background-clip: text) or (background-clip: text) {
         color: transparent;
     }
@@ -41,82 +39,21 @@
     position: relative;
     padding: 5px 10px;
     transition: all 0.3s ease;
-    /* Reduced shadow for better text visibility */
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-
-}
-
-/* Add a solid background behind the text for better visibility */
-.logo::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    /* background: rgba(255, 255, 255, 0.1); */
-    z-index: -1;
-    border-radius: 4px;
-}
-
-.logo::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #ff4d4d, #f9d423, transparent);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
 }
 
 .logo:hover {
     transform: translateY(-2px);
 }
 
-.logo:hover::after {
-    transform: scaleX(1);
-}
-
-/* Enhanced sparkle effect */
-@keyframes sparkle {
-    0% { background-position: 200% center; }
-    100% { background-position: -200% center; }
-}
-
-.logo span {
-    position: relative;
-    display: inline-block;
-}
-
-.logo span::before {
-    content: '';
-    position: absolute;
-    top: -10%;
-    left: -10%;
-    width: 120%;
-    height: 120%;
-    background: linear-gradient(90deg,
-        transparent,
-        rgba(255, 255, 255, 0.4),
-        transparent
-    );
-    background-size: 200% 100%;
-    animation: sparkle 2s linear infinite;
-    pointer-events: none;
-}
-
 /* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
     .logo {
         background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-        /* Fallback color for dark mode */
         color: #ff6b6b;
         @supports (-webkit-background-clip: text) or (background-clip: text) {
             color: transparent;
         }
-        /* Enhanced visibility in dark mode */
         text-shadow: 0 0 15px rgba(255, 107, 107, 0.5);
     }
 }
@@ -134,6 +71,7 @@
         font-size: 1.5rem;
     }
 }
+
   .navLinks {
     display: none;
   }
