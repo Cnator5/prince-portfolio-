@@ -273,7 +273,7 @@
 /* Optional: Add this for dark mode support */
 @media (prefers-color-scheme: dark) {
     .downloadButton {
-        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        background: linear-gradient(135deg, #3b82f6, #fbbf24);
         box-shadow: 
             6px 6px 12px rgba(0, 0, 0, 0.3),
             -6px -6px 12px rgba(255, 255, 255, 0.05),
@@ -281,7 +281,7 @@
     }
 
     .downloadButton:hover {
-        background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+        background: linear-gradient(135deg, #1d4ed8, #fbbf24);
         box-shadow: 
             8px 8px 16px rgba(0, 0, 0, 0.4),
             -8px -8px 16px rgba(255, 255, 255, 0.05),
